@@ -1,5 +1,0 @@
-.env
-__pycache__/
-chroma_db/
-documents/*.pdf
-venv/
