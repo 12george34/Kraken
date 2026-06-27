@@ -16,14 +16,24 @@ def load_pdf(path):
     return text
 
 
-def chunk_text(text, chunk_size=500, overlap=50):
+def chunk_text(text, max_size=500):
+    paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
     chunks = []
-    start = 0
-    while start < len(text):
-        end = start + chunk_size
-        chunks.append(text[start:end])
-        start = end - overlap
+    current = ""
+
+    for paragraph in paragraphs:
+        if len(current) + len(paragraph) <= max_size:
+            current += " " + paragraph
+        else:
+            if current:
+                chunks.append(current.strip())
+            current = paragraph
+    
+    if current:
+        chunks.append(current.strip())
+
     return chunks
+    
 
 
 def embed_chunks(chunks):
@@ -32,15 +42,16 @@ def embed_chunks(chunks):
     return embeddings
 
 
-def store_in_chroma(chunks, embeddings):
+def store_in_chroma(chunks, embeddings, filename):
     chroma_client = chromadb.PersistentClient(path="chroma_db")
     collection = chroma_client.get_or_create_collection(name='Kraken')
 
     for i, (chunk, embedding) in enumerate(zip(chunks, embeddings)):
         collection.add(
-            ids=[str(i)],
+            ids=[f"{filename}_{i}"],
             documents=[chunk],
-            embeddings=[embedding]
+            embeddings=[embedding],
+            metadatas=[{"source": filename, "chunk_index": i}]
         )
     print(f"Stored {len(chunks)} chunks in chorma")
 
@@ -53,7 +64,7 @@ if __name__ == "__main__":
             text = load_pdf(path)
             chunks = chunk_text(text)
             embeddings = embed_chunks(chunks)
-            store_in_chroma(chunks, embeddings)
+            store_in_chroma(chunks, embeddings, filename)
             print(f"Ingested: {filename}")
 
 

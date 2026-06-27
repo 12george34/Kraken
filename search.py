@@ -18,12 +18,13 @@ def search(question, top_k=3):
         n_results=top_k
     )
 
-    return results['documents'][0]
+    return results['documents'][0], results ['metadatas'][0]
 
 
 if __name__ == "__main__":
     question = input("Ask the question: ")
-    results = search(question)
-    for chunk in results:
-        print("\n---")
+    chunks, metadatas = search(question)
+    for chunk, metadata in zip(chunks, metadatas):
+        print('\n---')
         print(chunk)
+        print(f"Source: {metadata['source']}")
