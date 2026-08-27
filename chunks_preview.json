@@ -1,0 +1,416 @@
+[
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_0",
+    "text": "Complexity Analysis Unit 1 CPRG304 \u2013 Object-Oriented Programming III Kitty Wong \u00a9 2025Software Development \u2022 Problem \u2022 Developing software to solve a problem \u2022 Algorithm \u2022 Design a solution to the problem \u2022 Program \u2022 Implementing the solution (the source code) \u2022 Process \u2022 Run the program to check if it solved the problemAlgorithms \u2022 A step-by-step procedure for performing a well-defined task in a finite amount of time \u2022 An algorithm must be designed to solve a stated problem",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 0
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_1",
+    "text": "\u2022 The algorithm will be performed by some processor \u2022 A machine or a human \u2022 The algorithm must be expressed in a language or notation that the processor \u201cunderstands\u201d \u2022 The algorithm must be expressed in steps that the processor is capable of performing \u2022 The algorithm must eventually terminate, producing the required answer \u2022 No algorithm is allowed to rely on qualities such as insight, creativity etc. that distinguish humans from machines!Algorithms in Practice",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 1
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_2",
+    "text": "\u2022 The same problem can frequently be solved with different algorithms \u2022 Use the \u201cbest\u201d algorithm! \u2022 How would you compare the algorithms and rate them? \u2022 What would determine that one is \u201cbetter\u201d than the other? \u2022 What would your criteria be? \u2022 Time? \u2022 Memory usage? \u2022 Human costs to develop? \u2022 Human costs to maintain? \u2022 Accuracy?Complexity Analysis \u2022 The study of the performance (i.e. efficiency) of different algorithms \u2022 2 categories of algorithm efficiency: \u2022 Time Complexity",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 2
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_3",
+    "text": "\u2022 How long it takes to run the algorithm \u2022 Measurement of processor time to perform all the steps in an algorithm \u2022 Space Complexity \u2022 How much space the algorithm needs for storing data \u2022 Measurement of the amount of memory is used during the execution of the algorithmCurrent State of Technology \u2022 We now have cheap and plentiful RAMs! \u2022 Space complexity is not as crucial to determining the efficiency of an algorithm \u2022 Still important depending the type of system you\u2019re developing for or",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 3
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_4",
+    "text": "applications that require memory to be managed effectively \u2022 We will focus on time complexity \u2022 Note: Time complexity and space complexity are highly correlated \u2013 it\u2019s always a trade-off! \u2022 Better time efficiency means using more space \u2022 Better space efficiency means taking more timeTime Complexity \u2022 How long it takes to run the algorithm \u2022 The running time depends on the input data \u2022 The algorithm may run faster on certain data sets than on others Average Case vs. Worst Case",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 4
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_5",
+    "text": "\u2022 Finding the average-case can be difficult \u2022 In certain application domains (e.g. air traffic control, authentication, surgery, IP lookup) knowing the worst-case time complexity is of critical importance \u2022 Algorithms are measured by the worst-case time complexity (upper-bound) \u2022 It will take this maximum amount of time to run \u2022 E.g. it will take at most 5 milliseconds to complete \u2022 In some applications, it would be beneficial to provide the best-case (lower-bound) as well",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 5
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_6",
+    "text": "\u2022 E.g. it will take between 2 to 5 milliseconds to completeMeasuring the Running Time \u2022 How should we measure the running time of the algorithm? \u2022 Real time \u2013 ns? ms? sec? \u2022 Experimental analysis/benchmarking: 1. Write a program to implement an experiment 2. Run the program with data sets with varying size and composition 3. Get a measure of actual running time (stop \u2013 start) \u2022 Example: Concat.javaExperimental Analysis \u2022 Benchmarking for running time long start = System.currentTimeMillis();",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 6
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_7",
+    "text": "// run algorithm long stop = System.currentTimeMillis(); time = stop \u2013 start; \u2022 Every run will have different results \u2022 Real-time measurements depends on the hardware, operating system, system configurations and other software currently running as well \u2022 Any algorithm can run faster using a faster processor!Limitations of Experimental Analysis \u2022 You need to implement the algorithm and run it in order to determine its running time \u2022 Implementation may differ",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 7
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_8",
+    "text": "\u2022 In order to compare 2 algorithms, the identical computing environment must be used \u2022 Exact hardware, software etc. \u2022 Experiments can only be done on a limited set of data inputs (e.g. TEST_SIZE) \u2022 May not be indicative of the running time on other inputs not included in the experimentBeyond Experimental Analysis \u2022 We will need to use a general methodology for analyzing algorithms: \u2022 A high-level description of the algorithm is used instead of testing one of its implementations",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 8
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_9",
+    "text": "\u2022 Can take into account all possible inputs \u2022 Allows evaluation of efficiency of any algorithm that is independent from the software/hardware environment \u2022 Fun fact: The \u201cfather\u201d of algorithm analysis is Donald Knuth \u2022 If you find an error in any of his books, he sends you moneyDusting off some Mathematics \u2022 Exponentials: Given a number b and a non-negative integer n, b to the power of n (bn) is the multiplication of n copies of b: bn = b x \u2026..x b \u2022 Example: b3 = b x b x b b2 = b x b b1 = b",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 9
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_10",
+    "text": "b0 = 1Dusting off some Mathematics \u2022 Logarithms: Given a positive number y, the logarithm of y to the base of 2 (log2 y) is the number of copies of 2 that must be multiplied together to equal y \u2022 If y is a power of 2, then log2 y is an integer \u2022 Example: log2 1 = 0 log2 2 = 1 log2 4 = 2 log2 8 = 3Logarithms \u2022 Another way to look at logs: log2 8 : 8/2 = 4 4/2 = 2 2/2 = 1 \u2022 8 divided by base 2, exactly 3 times, to get to 1 \u2022 The same applies to all base values \u2022 E.g. log5 125 = 3",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 10
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_11",
+    "text": "\u2022 Logs is the inverse of exponents! \u2022 23 = 8 == log2 8 = 3 \u2022 53 = 125 == log5 125 = 3Logarithms \u2022 What about numbers that doesn\u2019t divide evenly into 2? log2 9: 9/2 = 4, discard remainders (integer division) 4/2 = 2 2/2 = 1 \u2022 log2 9 = 3 \u2022 log2 10 = 3 \u2022 log2 11 = 3 \u2022 log2 12 = 3 \u2022 Etc. \u2022 log2 16 = 4Pattern of Logarithms \u2022 Log based 2 of any number n = number of times you can divide n by 2 until you reach 1 \u2022 For any number, the number of times you can divide the",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 11
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_12",
+    "text": "number by 2 depends on where is falls between the powers of 2 20 = 1 < 21 = 2 < 3 < 22 = 4 < 5 < 6 < 7 < 23 = 8 < 9 < 10 < 11 < 12 < 13 < 14 < 15 < 24 = 16 < 17 < 18 etc.Pattern of Logarithms \u2022 Mathematically, this is represented as: Log2 (any number n) = m if: 2m <= n < 2m+1 Solving for m: m <= log2 n < m+1 m = floor(log2 n) \u2022 Therefore, for any value n: \u2022 n = 1, after dividing by 2 (n/2) \u2013 floor(log2 n) times \u2022 n = 0, after dividing by 2 (n/2) \u2013 floor(log2 n) + 1 times",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 12
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_13",
+    "text": "\u2022 Note: Any divide and conquer algorithm will have this log2 n for input size n!Algorithm Analysis \u2022 First we need a high-level description of the algorithm to analyze \u2022 Recall: Algorithm = step-by-step procedure \u2022 How do we represent an algorithm? \u2022 Flowcharts \u2022 Pseudocode: a description of an algorithm in plain language that is more structured than the usual prose, but less formal than a programming language \u2022 Intended to be read by humans",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 13
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_14",
+    "text": "\u2022 Programming language independent, but we will use a Java-like stylePower Algorithms \u2022 To compute bn, n>0, n\uf0ceI \u2022 Simple: Set x to 1 For ( int i=0; i<n; i++ ) Set x = x * b Terminate with answer x \u2022 Smart: Set x to 1, set y to b, and set z to n While z > 0: If z is odd then set x = x * y Divide z by 2 (discard remainder), set y = y * y Terminate with answer xAlgorithm Analysis \u2022 With our pseudocode, now we need to analyze the running time",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 14
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_15",
+    "text": "\u2022 Go through the algorithm line-by-line and calculate the worst- case \u2022 This is done by counting the total number of operations 1. Arithmetic operations: +, -, *, / etc. 2. Comparison operations: <, >, etc. 3. Assignment operations: x = y \u2022 Note: increment (++) and decrement (--) are really 2 operations \u2013 1 arithmetic (+/-) and 1 assignment (=)Counting \u2013 Simple Power Algorithm Set x to 1 1 assignment For ( int i = 0; i < n; i++ ) Start: 1 assignment, 1 comparison",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 15
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_16",
+    "text": "Each iteration: 1 increment (arithmetic + assignment), 1 comparison \u2022 There are n iterations Total: n+1 assignment, n+1 comparison, n arithmetic Multiply x by b n arithmetic, n assignment Terminate with answer x \u2022 Total = 2n+2 assignment, n+1 comparison, 2n arithmetic \u2022 f(n) = 5n + 3Counting \u2013 Smart Power Algorithm Set x to 1 \u2013 1 assignment Set y to b \u2013 1 assignment Set z to n \u2013 1 assignment While z > 0: \u2013 1 comparison + *** If z is odd then \u2013 modulus + comparison",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 16
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_17",
+    "text": "Set x = x * y \u2013 arithmetic + assignment Divide z by 2 (discard remainder) \u2013 arithmetic + assignment Set y = y * y \u2013 arithmetic + assignment Terminate with answer x \u2022 f(n) = 9(floor(log2 n) + 1) + 3 ***z is divided by 2 at every iteration, recall n = 0 after doing n/2 floor(log2 n) + 1 times? That means this loop will execute floor(log2 n) + 1 times! (Note: the +1 here is the last iteration where the condition is false and the while loop terminates)Comparing the Power Algorithms f(n) n",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 17
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_18",
+    "text": "simple power algorithm smart power algorithmGrowth Rates \u2022 Actual times taken by algorithms is great, but we are more interested in the growth rate for each algorithm \u2022 As we increase the input size, the running time will also increase \u2022 How much increase (the change in running time) is the most important part of algorithm analysis! \u2022 E.g. Simple vs. Smart \u2022 As the value of n increases, the constants is unaffected \u2022 E.g. 5n + 3: the 5 and 3 will become negligible",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 18
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_19",
+    "text": "\u2022 So we can ignore them!The Big O Notation \u2022 The standard way to represent upper-bound (worst- case) of growth rates for both time and space complexity \u2022 Keep the fastest-growing term in the formula, discard all slower-growing terms \u2022 Discard any constant factor in the fastest growing term \u2022 E.g. 5n + 3: discard the 3 and 5 \uf0e0 n = O(n) \u2022 Pronounced \u201cBig O of n\u201d or \u201corder of n\u201d \u2022 E.g. 9(floor(log2 n) + 1) + 3 \uf0e0 O(log n) \u2022 Pronounced \u201cBig O of log n\u201d or \u201corder of log n\u201d",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 19
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_20",
+    "text": "\u2022 Convention: O(log n) instead of O(log2 n) since the base of the logarithm does not matter (just another constant)Practice \u2022 Identify the growth rates in the following functions: \u2022 f(n) = 1. 5n \u2013 24 2. 10n4 + 10n log2n + 5 3. 7 log2n 4. 21000Common Growth Rates in Big O \u2022 O(1)   constant grows slowest runs fastest \u2022 O(log n)   logarithmic \u2022 O(n) linear \u2022 O(n log n) linearithmic \u2022 O(n2) quadratic \u2022 O(n3) cubic \u2022 O(nk), k>1 polynomial \u2022 O(2n), n>1 exponential",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 20
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_21",
+    "text": "\u2022 O(n!), n>1 factorial grows fastest run slowestComparing the Growth Rates \u2022 Ultimately we want to know which algorithm is \u201cbetter\u201d? \u2022 Faster growth rate = takes longer time or uses more memory as n increases = bad! \u2022 Slower growth rate = better performance! log n n n n log nn22nPractice \u2022 Given the following 2 algorithms, which one is better? 1. for each n { // some code } 2. for each n { for each n { // some code } }Cumulative Time Complexity \u2022 Suppose that an algorithm consists of 2 steps,",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 21
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_22",
+    "text": "performed in sequence: \u2022 Step 1\u2019s time complexity is O(n) \u2022 Step 2\u2019s time complexity is O(n2) \u2022 What is the algorithm\u2019s time complexity? \u2022 Just as a chain is no stronger than its weakest link, an algorithm is no more efficient than its least efficient step! \u2022 Therefore, O(n) + O(n2) = O(n2)Practice \u2022 What is the time complexity of these combined growth rates? 1. O(2n)+O(n4) 2. O(n3)+O(n2) 3. O(n2)+O(n log n) 4. O(n log n)+O(n) 5. O(n)+O(log n) 6. O(log n)+O(1)Beware of Large Constants!",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 22
+  },
+  {
+    "id": "1-ComplexityAnalysis (1).pdf_23",
+    "text": "1. For each n { // 5,000,000,000 operations } \u2022 5,000,000,000n = O(n) 2. For each n { For each n { // 5 operations } } \u2022 5n2 = O(n2)",
+    "source": "1-ComplexityAnalysis (1).pdf",
+    "chunk_index": 23
+  },
+  {
+    "id": "2-SearchingSorting.pdf_0",
+    "text": "Searching and Sorting Algorithms Unit 2 CPRG304 \u2013 Object-Oriented Programming III Kitty Wong \u00a9 2025Searching and Sorting \u2022 Donald Knuth: \u2022 \u201cIndeed, I believe that virtually every important aspect of programming arises somewhere in the context of sorting or searching!\u201d \u2022 It\u2019s what all our software must do! \u2022 We interact with data to locate a specific item = searching \u2022 To find something easier, we have to order it in a specific way = sorting \u2022 How our data is stored affects how we can",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 0
+  },
+  {
+    "id": "2-SearchingSorting.pdf_1",
+    "text": "search and sort! Arrays \u2022 A sequence of indexed elements: \u2022 The size of the array is fixed when the array is constructed \u2022 Static-sized, cannot be changed \u2022 Each array element has a fixed and unique index \u2022 The index range from a lower bound to an upper bound \u2022 Any array element can be accessed in O(1) time \u2022 Inspected or updated array indexeslow+1 a low+2 high-1 highlow high-2 array elementsJava Arrays \u2022 A Java array consist of elements are either values of a primitive type or objects of a class",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 1
+  },
+  {
+    "id": "2-SearchingSorting.pdf_2",
+    "text": "\u2022 A Java array of length n has indexes of lower bound 0 and upper bound n\u20131 \u2022 A Java array is itself an object, allocated dynamically by new T[n] n\u20131length 0 1 n\u20132 a nT[] class tag array elementsJava Primitive Array \u2022 Example: int[] primes = {2, 3, 5, 7, 11}; \u2022 Arrays are an object in Java \u2022 Created during run-time (dynamically allocated) \u2022 Resides in dynamic memory (the Java heap) \u2022 The area of memory used to store objects instantiated by the JVM (run-time) 4length 0 1 3 primes 5int[] class tag",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 2
+  },
+  {
+    "id": "2-SearchingSorting.pdf_3",
+    "text": "2 3 5 7 11 2Java Object Array \u2022 Example: Date[] holidays = new Date[3]; holidays[0] = new Date(2024, 10, 11); holidays[1] = new Date(2024, 11, 11); holidays[2] = new Date(2024, 12, 25); length 0 1 holidays 3Date[] class tag 2 10 112024Date 11 112024Date y m d 12 252024Date y m dclass tag y m dclass tag class tagSubarrays \u2022 A sequence of consecutive elements that forms a part of a larger array \u2022 Notation: let a[l..r] be the subarray consisting of elements a[l], \u2026, a[r]",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 3
+  },
+  {
+    "id": "2-SearchingSorting.pdf_4",
+    "text": "\u2022 Subarray notation is used here, but is not supported by Java \u2022 Length of subarray a[l..r] is r \u2013 l + 1 80 1 7 a 2 3 4 5 6 9 subarray a[6..9]subarray a[1..3]Sorted Arrays \u2022 A (sub)array is sorted if its elements are in ascending order \u2022 i.e., each element is less than or equal to the element on its right \u2022 The meaning of the comparison \u201cx is less than y\u201d must be defined for each data type \u2022 Meaning of less for numbers: \u2022 x is numerically less than y, i.e., x < y",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 4
+  },
+  {
+    "id": "2-SearchingSorting.pdf_5",
+    "text": "\u2022 Conventional meaning of less for Strings: \u2022 x precedes y lexicographically (dictionary order) E.g.: \u201cbat\u201d is less than \u201cbath\u201d, which is less than \u201cbay\u201d \u2022 Conventional meaning of less for Date: \u2022 Today precedes tomorrow (\u201cearlier\u201d)Java Interfaces \u2022 Defines an abstract type to specify the behavior of a class! \u2022 Can have static constants \u2022 Can only have abstract methods (no implementation) Comparable vs Comparator \u2022 Java provides 2 interfaces for comparisons: 1.public interface Comparable<T>",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 5
+  },
+  {
+    "id": "2-SearchingSorting.pdf_6",
+    "text": "\u2022 For objects that have a natural order 2.public interface Comparator<T> \u2022 For objects that: \u2022 Can have multiple comparison attributes \u2022 You have no control over \u2022 Needs to implement the Strategy design patternThe Comparable Interface \u2022 If a class implements Comparable, it must implement compareTo() in accordance with its \u201ccontract\u201d /** @return a negative integer if this object is less than that, * or zero if this object is equal to that,",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 6
+  },
+  {
+    "id": "2-SearchingSorting.pdf_7",
+    "text": "* or a positive integer if this object is greater than that. */ public int compareTo(T that); \u2022 The compareTo method captures the notion of less or greater than for objectsBrief Introduction to Generics \u2022 The <T> is like a placeholder \u2022 Allows it to be replaced by an actual type later! \u2022 Done by the class implementing the interface \u2022 Why not use Object? \u2022 Everything is a Object! \u2022 We can\u2019t compare \u201ccat\u201d with 42 \u2022 Java can\u2019t enforce types The Comparator Interface",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 7
+  },
+  {
+    "id": "2-SearchingSorting.pdf_8",
+    "text": "\u2022 An external class (or multiple classes) that implements Comparator can be used \u2022 The compare() method implements the comparison of objects to impose an order /** @return a negative integer if the first object is less than * the second object, * or zero if the first object is equal to the second object, * or a positive integer if the first object is greater than the * second object  */ public int compare(T o1, T o2);Manipulating Arrays \u2022 How do you find an element in an array of n elements?",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 8
+  },
+  {
+    "id": "2-SearchingSorting.pdf_9",
+    "text": "\u2022 Via index: direct access \u2013 O(1) \u2022 Via a value of the element: sequential \u2013 O(n) \u2022 Add an element? \u2022 Must shift every element to the right to make room \u2022 O(n) \u2022 Remove an element? \u2022 Must shift every element to the left to fill the gap \u2022 O(n) 80 1 7 a 2 3 4 5 6 9Array Insertions \u2022 Given a (sub)array a[left..right], insert a value val at a[ins] \u2022 If necessary, shift values right to make room for it \u2022 Array insertion algorithm to insert val at index ins in a[left..right], where left \uf0a3 ins \uf0a3 right):",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 9
+  },
+  {
+    "id": "2-SearchingSorting.pdf_10",
+    "text": "Copy a[ins..right] into a[ins+1\u2026right+1] Copy val into a[ins] TerminateArray Deletions \u2022 Given a (sub)array a[left..right], delete the value at a[del] \u2022 If necessary, shift values left to fill the gap \u2022 Array deletion algorithm to delete the value at index del in a[left..right], where left \uf0a3 del \uf0a3 right): Copy a[del+1..right] into a[del\u2026right-1] Make a[right] unoccupied TerminateAnother Way to Search an Array \u2022 What we\u2019ve assumed so far is linear search \u2022 Works for unsorted and sorted arrays",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 10
+  },
+  {
+    "id": "2-SearchingSorting.pdf_11",
+    "text": "\u2022 Always O(n) for successful or unsuccessful search \u2022 If the array is sorted then we can perform binary search \u2022 Performs much better! \u2022 Invariant: a rule that is always true at every step of the algorithm \u2022 With binary searches, the invariant is that the array is sorted \u2022 Like an assumption \u2022 The condition that must be true to execute correctlyBinary Search \u2022 To find which (if any) element of the sorted (sub)array a[left..right] equals target: Set l = left, and set r = right While l \uf0a3 r:",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 11
+  },
+  {
+    "id": "2-SearchingSorting.pdf_12",
+    "text": "Let m be an integer about midway between l and r If target equals a[m], terminate with answer m If target is less than a[m], set r = m\u20131 If target is greater than a[m], set l = m+1 Terminate with answer none known to be less than target still to be searched known to be greater than target lleft rl\u20131 a rightr+1Binary Search Analysis \u2022 Counting operations: \u2022 If the search is unsuccessful, these steps are repeated as often as we must halve n to reach 0:",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 12
+  },
+  {
+    "id": "2-SearchingSorting.pdf_13",
+    "text": "\u2022 Number of comparisons  =  3 (floor(log2 n) + 1) \u2022 If the search is successful, these steps are repeated at most that many times: \u2022 Maximum number of comparisons  =  3 floor(log2 n) + 3 \u2022 In either case, the time complexity is O(log n) \u2022 Linear search is always O(n) \u2022 Trade-off: the array must always be sorted for binary search! \u2022 What\u2019s the performance impact for keeping the array sorted?Sorting \u2022 This is what our software has to do most of the time! \u2022 Sort then we can search faster!",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 13
+  },
+  {
+    "id": "2-SearchingSorting.pdf_14",
+    "text": "\u2022 E.g. Binary searching \u2022 Given an unsorted array of data, rearrange the data into a certain order (e.g. ascending order) \u2022 If our data doesn\u2019t change then it doesn\u2019t matter how we sort the data \u2022 If we allow adds, removes, or updates then we need to make sure it\u2019s always in sorted order \u2022 Must be efficient \u2013 always running!Sorting Algorithms \u2022 So many to choose from! \u2022 Internal Sorting \u2022 The whole collection of data resides in memory (RAM) \u2022 Faster access = faster sorting \u2022 External Sorting",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 14
+  },
+  {
+    "id": "2-SearchingSorting.pdf_15",
+    "text": "\u2022 Data resides in both memory and secondary storage (hard disk) \u2022 Slower due to transfer of data to/from disk \u2022 We will not cover these types of sorts in this courseInsertion Sort \u2022 Successively read each value and insert it into its correct position in an array \u2022 Very much like you would sort a hand of cards! \u2022 https://www.youtube.com/watch?v=DFG- XuyPYUQ&ab_channel=CS50 \u2022 Time complexity \u2013 O(n2) \u2022 Space complexity \u2013 O(1)Selection Sort \u2022 Find the smallest value in the array, swap it into the",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 15
+  },
+  {
+    "id": "2-SearchingSorting.pdf_16",
+    "text": "leftmost element where it belongs, then forget this element, repeat with next smallest value until done \u2022 https://www.youtube.com/watch?v=f8hXR_Hvybo&ab_ channel=CS50 \u2022 Time complexity \u2013 O(n2) \u2022 Space complexity \u2013 O(1)Bubble Sort \u2022 Read each value and compare it to the next value \u2022 If the current value is > than the next, swap the values \u2022 Repeat until end of collection \u2022 This is the first pass which moves the correct element to the last position",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 16
+  },
+  {
+    "id": "2-SearchingSorting.pdf_17",
+    "text": "\u2022 Start again at the beginning of the collection, repeat the comparisons and swapping if necessary \u2022 Sorted when you pass through the entire collection without swapping any values \u2022 https://www.youtube.com/watch?v=uJLwnsLn0_Q&ab_chan nel=ProgrammingwithMosh \u2022 Time complexity \u2013 O(n2) \u2022 Space complexity \u2013 O(1)Divide and Conquer \u2022 To break the problem into several subproblems that are similar to the original problem, but smaller in size 1. Divide the problem into a number of subproblems",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 17
+  },
+  {
+    "id": "2-SearchingSorting.pdf_18",
+    "text": "2. Conquer the subproblems by solving them recursively \u2022 If the subproblem sizes are small enough, just solve the subproblem in a straightforward manner 3. Combine the solutions to the subproblems into the solution for the original problem \u2022 Perhaps the most overlooked step!Merging for Merge Sort \u2022 Given two sorted arrays, make a third sorted array containing copies of all components of the two original two arrays \u2022 https://www.youtube.com/watch?v=EeQ8pwjQxTM&ab _channel=CS50 (until 3:18)",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 18
+  },
+  {
+    "id": "2-SearchingSorting.pdf_19",
+    "text": "\u2022 Time Complexity: O(n) \u2022 Space Complexity: O(2n) \u2022 Not considering variations of the algorithmMerge Sort 1. Divide: the array into two subarrays of about equal length 2. Conquer: Sort the subarrays separately using merge-sort 3. Combine: Merge the sorted subarrays \u2022 https://www.youtube.com/watch?v=EeQ8pwjQxTM&ab_cha nnel=CS50 (start at 3:18) \u2022 Time Complexity: O(n log n) \u2022 Space Complexity: O(n)Quicksort \u2022 Choose any value from the array called the pivot",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 19
+  },
+  {
+    "id": "2-SearchingSorting.pdf_20",
+    "text": "\u2022 Partition the array into three subarrays such that: \u2022 The left subarray contains only values less than (or equal to) the pivot \u2022 The middle subarray contains only the pivot \u2022 The right subarray contains only values greater than the pivot \u2022 Repeat with the left subarray and the right subarray separately until sorted \u2022 https://www.youtube.com/watch?v=h8eyY7dIiN4&ab_chan nel=CodingwithJohn \u2022 Time Complexity: O(n2) or O(n log n) \u2022 Space Complexity: O(n) or O(log n)Selecting a Pivot",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 20
+  },
+  {
+    "id": "2-SearchingSorting.pdf_21",
+    "text": "\u2022 Selecting a pivot wisely can significantly improve the performance of the algorithm \u2022 First element: \u2022 Simple, no overhead \u2022 Still O(n2) if collection is sorted \u2022 Random selection: \u2022 Safe in almost all situations, but calculating a random number can be costly and does not guarantee it\u2019s the smallest/largest! \u2022 Median element: \u2022 Optimal, but impractical to implementMedian-of-3 \u2022 Value of the median element out the elements in first position, middle position and last position",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 21
+  },
+  {
+    "id": "2-SearchingSorting.pdf_22",
+    "text": "\u2022 If collection is not odd-number sized, just pick the element before or after \u2022 E.g. sort a[0], a[4], a[9], pivot = middle value \u2022 Easy and fast \u2022 A good compromise to finding the actual median \u2022 Works even if the collection is already sorted 80 1 7 a 2 3 4 5 6 9Non-Comparative Sorts \u2022 Comparative sorts can perform at best O(n log n) \u2022 O(log n) comparisons and O(n) merge, shifts or swaps \u2022 Non-comparative = no comparisons \u2022 No more O(log n) for comparing elements! \u2022 Also know distribution sorts",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 22
+  },
+  {
+    "id": "2-SearchingSorting.pdf_23",
+    "text": "\u2022 Only works for certain types of data \u2022 Can be external (i.e. all data does not need to be in memory)Radix Sort \u2022 Using multiple passes, distribute each item to a bucket according to part of the item\u2019s key beginning with the least significant part of the key \u2022 After each pass, items are collected from the buckets, keeping the items in order, then redistributed according to the next most significant part of the key \u2022 Can only be used with data within a specific set",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 23
+  },
+  {
+    "id": "2-SearchingSorting.pdf_24",
+    "text": "\u2022 Digits 0-9, alphabet A-Z, of a particular length \u2022 E.g. postal code \u2013 T3K0C3 \u2022 E.g. card - A<2<3<4<5<6<7<8<9<10<J<Q<K, \uf0a8 < \uf0a7 < \uf0a9 < \uf0aaRadix Sort Example \u2022 Data: 493, 812, 715, 710, 195, 437, 582, 340, 385 \u2022 Start with the least significant digit (the one\u2019s position) \u2022 Gather the same values and put them together in a bucket \u2022 Usually implemented as a list \u2022 \u201cDrain\u201d the buckets in order: \u2022 We end up with: 710, 340, 812, 582, 493, 715, 195, 385, 437 Radix Sort Example",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 24
+  },
+  {
+    "id": "2-SearchingSorting.pdf_25",
+    "text": "\u2022 Data: 710, 340, 812, 582, 493, 715, 195, 385, 437 \u2022 Now to the next least significant digit (the ten\u2019s position) \u2022 Gather the same values and put them together in a bucket \u2022 \u201cDrain\u201d the buckets in order again: \u2022 We end up with: 710, 812, 715, 437, 340, 582, 385, 493, 195 Radix Sort Example \u2022 Data: 710, 812, 715, 437, 340, 582, 385, 493, 195 \u2022 Now to the last digit (the hundred\u2019s position) \u2022 Gather the same values and put them together in a bucket \u2022 \u201cDrain\u201d the buckets in order again:",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 25
+  },
+  {
+    "id": "2-SearchingSorting.pdf_26",
+    "text": "\u2022 We now have our sorted data: 195, 340, 385, 437, 493, 582, 710, 715, 812 Radix Sort \u2022 Time complexity: O(n) \u2022 Space complexity: O(n) \u2022 can be optimized depending on data set \u2022 Implementation:",
+    "source": "2-SearchingSorting.pdf",
+    "chunk_index": 26
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_0",
+    "text": "Abstract Data Type and Data Structures Unit 3 CPRG304 \u2013 Object-Oriented Programming III Kitty Wong \u00a9 2025The 4 characteristics of OOP \u2022 OOP is all about data modelling \u2022 Identify objects of the system and how they relate to each other 1. Inheritance \u2013 \u201cis a\u201d 2. Polymorphism \u2013 \u201cone name, many forms\u201d \u2022 Subtype or parametric 3. Encapsulation \u2013 \u201ctime capsule\u201d \u2022 Orthogonality (separation of concerns/single responsibility) 4. Abstraction \u2013 \u201cneed-to-know basis\u201dAbstraction",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 0
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_1",
+    "text": "\u2022 Suppressing details to emphasize on what is relevant at the moment \u2022 Represent data at a conceptual level without any details \u2022 Provides high level views of objects and their behaviours \u2022 Enables us to forget about the low level details and concentrate on the problem at hand \u2022 Level of abstraction will depend upon the view point of the user and the problem to be solvedData \u2022 Definition: independent facts, observations, or events. \u2022 Example: Data about a student \u2022 Name \u2022 ID \u2022 Program \u2022 Year",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 1
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_2",
+    "text": "\u2022 GPAData vs. Information Low <------- level of abstraction -----\uf0e0 High Data \uf0e0 (apply meaning) \uf0e0 Information \u2022 E.g. Data: red octagon, white border with letters S, T, O, P. Information: A stop sign. Data Type vs. Data Structures \u2022 Data Type: classification of data, logical description that determines possible values of the type and the operations that can be done on it \u2022 E.g. integers \u2013 whole numbers, no decimal points \u2022 Data Structure: implementation of data types, concrete",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 2
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_3",
+    "text": "actual representation of data, a particular way of storing and organizing data \u2022 E.g. Java INT \u2013 exactly 4 bytes to represent value from -2,147,483,648 to +2,147,483,647 (=231, 1 bit for sign)Abstract Data Types (ADT) \u2022 A (mathematically) specified model of data-storing entities with operations on that data \u2022 An ADT specifies what each operation does, but not how it does it! \u2022 A data type that does not specify an implementation \u2022 Logical description of the data and operations/rules to access or",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 3
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_4",
+    "text": "manipulate the data \u2022 An ADT is realized/implemented by a concrete data structure \u2022 E.g. integers, can add, subtract, compare, etc. \u2022 E.g. text, can append, concat, get size, etc.Abstract Data Types (ADTs) \u2022 Implementation independent! \u2022 E.g. SHORT or INT for integers \u2022 E.g. String class for text, can be done with arrays or linked lists \u2022 Can be implemented in any language \u2022 ADTs defines the WHAT, not the HOW \u2022 Abstraction separates the purpose from implementation",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 4
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_5",
+    "text": "\u2022 Provides encapsulation, orthogonality and flexibility to maximize effectiveness and efficiencyWhy ADTs? \u2022 Implementation can change but the ADT doesn\u2019t! \u2022 E.g. You design various uses for crushed ice \u2022 You don\u2019t need to know how the ice dispenser works, you don\u2019t care and is not distracted by the engineering details = abstraction \u2022 Eventually, someone must build the dispenser, many techniques are possible (implementation) \u2022 Mechanisms of certain operations are encapsulated with the internal",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 5
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_6",
+    "text": "structure elements = encapsulation \u2022 If the dispenser is surrounded by walls, the machine\u2019s interior mechanisms are not only hidden from the user but also inaccessible = information hiding \u2022 If dispenser was built with modular design, you can improve crushing of the ice without affecting the other modules = modularityADT vs. Data Structure \u2022 ADT is a collection of data and a set of operations on that data \u2022 This is the CONTRACT \u2013 what the ADT promises to others,",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 6
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_7",
+    "text": "what the ADT is and how you can interact with it Java ADTs \u2022 Usually done as an Interface, mostly to represent large sets of data (collections) \u2022 A class can extend multiple interfaces = only way to achieve multiple inheritance in Java Designing an ADT 1. What data does a problem require? 2. What operations does a problem require? \u2022 An ADT specification should NOT include implementation details \u2022 We can fill out the ice dispenser with tap water, distilled water,",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 7
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_8",
+    "text": "juice or wine \u2013 the operations will not change \u2022 You can use an ADT without knowledge of its implementationDesigning an ADT \u2013 Methodology 1. Understand the data type abstractly 2. Write a specification of the data type 3. Use the data type \u2013 write a test program first! \u2022 Test-Driven Development (TDD) 4. Select appropriate data structures and implement the ADT 5. Analyze implementation, compare with Java Collection API and other implementationsDesigning an ADT in Java",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 8
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_9",
+    "text": "\u2022 We need to specify how users can interact with the data \u2022 What inputs are needed \u2022 What outputs are generated \u2022 What can go wrong? MethodParameters Return ExceptionsCommon Operations (Method Types) \u2022 Constructors \u2013 creates the ADT and initializes state \u2022 Accessors (Getters) \u2013 returns a value from the collections or the whole collection, or some information about the ADT \u2022 next(), min(), size() \u2022 Mutators (Setters) \u2013 modifies the collection in any way \u2022 add(), replace(), clear()",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 9
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_10",
+    "text": "\u2022 Transformers \u2013 similar to getters but changes the data value or type being returned \u2022 isEmpty(), calcVolume(), calcBaseArea()CounterADT Exercise \u2022 We need a class called Counter. An object of this class will be used to count things, so it will record a count that is a non-negative whole number. This class will need to set the counters to a given integer, increase the count by 1, and to decrease the count by 1. We will need to be able to return the current count as an",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 10
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_11",
+    "text": "integer and a string to be displayed on the screen. It is important to be able to determine if the counter is zero at any given point in time.Step 1 - Understand \u2022 What can go wrong? Non-negative value! \u2022 Throws InvalidCounterException when object is mutated Counter - counter: int + setCounter( num: int ) : void + incCounter() : void + decCounter() : void + getCounter() : int + toString() : String + isZero() : BooleanStep 2 \u2013 Write the Interface \u2022 CounterADT.java \u2022 Documentation is CRITICAL!",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 11
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_12",
+    "text": "\u2022 Just as you would read the Java API to understand how to use a class and its methods, we need to be VERY precise in our JavaDoc to let users know how to use and what to expect from our ADT! \u2022 Preconditions \u2013 what must be in place for this operation to execute as promised \u2022 Postconditions \u2013 what the ADT promised to doStep 3 \u2013 Use the ADT \u2022 Our ultimate goal in SD: \u2022 Are we solving the problem? Does our code do what it\u2019s supposed to do? \u2022 \u201cWriting the right code\u201d",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 12
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_13",
+    "text": "\u2022 Does our solution solve the problem in a good way? \u2022 \u201cWriting the code right\u201d \u2022 We need to make sure our ADT will do what it promises to do \u2022 The only way to ensure this is to \u201ctest\u201d it!Testing \u2022 \u201cWriting the right code\u201d \u2022 Determines the correctness of our software \u2022 Detects defects = bugs! \u2022 Definition: evaluating a property of interest in S/W to determine if it: 1. Meets the design requirements 2. Responds correctly to all inputs 3. Performs its function",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 13
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_14",
+    "text": "4. Achieves the desired resultsTest-Driven Development (TDD) \u2022 Design tests as we\u2019re designing our classes \u2022 Turn software requirements into specific test cases \u2022 This allows us to concentrate of what is important \u2013 the requirements to solve the problem \u2022 Proven to produce simpler designs and cleaner code \u2022 Guarantees that all functionalities are tested \u2013 100% coverage (every single line of code is tested) \u2022 Always available when code is changed (regression testing)TDD in a Project",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 14
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_15",
+    "text": "\u2022 The earlier we find a bug, the cheaper it is to fix it! \u2022 Some components of functionality that cannot be easily tested except for the developer! \u2022 Especially in the back-end where there may not be a GUI or entry point that is independent from the rest of the system Cost to fix a defect Time detected Requirements Architecture Construction System test Post-release Time introduced Requirements 1\u00d7 3\u00d7 5\u201310\u00d7 10\u00d7 10\u2013100\u00d7 Architecture \u2013 1\u00d7 10\u00d7 15\u00d7 25\u2013100\u00d7 Construction \u2013 \u2013 1\u00d7 10\u00d7 10\u201325\u00d7Unit Testing",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 15
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_16",
+    "text": "Step 4 - Implementation \u2022 Once you have tests, you can now write the code! \u2022 Create Counter class that implements the CounterADT interface \u2022 Add all inherited methods \u2022 All tests should fail right now! \u2022 It\u2019s ok! Nothing is \u201cwrong\u201d \u2013 this is normal for TDD! \u2022 Pick one method and one corresponding test, write just enough code to pass the test! \u2022 Don\u2019t try to add anything extra or fancy \u2013 we just want the code to do what it needs to do, nothing more, nothing less!Step 5 \u2013 Verification/Validation",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 16
+  },
+  {
+    "id": "3-ADT&DS (1).pdf_17",
+    "text": "\u2022 This is simply making sure your code passes all the tests! \u2022 Do NOT modify the tests to make it pass! Always assume your code isn\u2019t right\u2026 * \u2022 Verification vs. Validation: \u2022 \u201cWriting the right code\u201d vs. \u201cWriting the code right\u201d",
+    "source": "3-ADT&DS (1).pdf",
+    "chunk_index": 17
+  }
+]
