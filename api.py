@@ -24,3 +24,5 @@ def chat_endpoint(req: ChatRequest):
     chunks, metadatas = search(req.question)
     answer = chat(req.question, chunks, metadatas, req.history)
     return {"answer": answer}
+
+# test for the new github branch
